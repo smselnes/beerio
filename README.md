@@ -1,84 +1,70 @@
-# JS Frameworks Course Assignment
+# Getting Started with Create React App
 
-## Brief
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Create either a new React or Next.js app in this repo.
+## Available Scripts
 
-For the login functionality, use either a Wordpress installation with the <a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/" target="_blank">JWT plugin from Module 3</a> installed, or a Strapi installation. Do not add either of these to your repo. Your API should remain a separate project. The markers will use their own installations when marking.
+In the project directory, you can run:
 
-You can use either a REST or GraphQL API for the API calls.
+### `npm start`
 
----
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Assessment
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Please provide your login credentials for assessment.
+### `npm test`
 
-Example
-- username: xxxxxx
-- password: xxxxxx
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Level 1
+### `npm run build`
 
-Your app should have the following paths:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
--   "/"
--   "/detail/:param"
--   "/contact"
--   "/login"
--   "/admin"
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-The admin path won't appear in your navigation.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Use reusable components where appropriate and pay attention to how the components are arranged.
+### `npm run eject`
 
-### Home
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Find an API that returns at least:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
--   an array of items
--   a single item retrieved by a parameter (id, name, slug, etc)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-If you are using Next you can also hard-code json and return it from API routes created in `pages/api/*`.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-You can use your own Wordpress or Strapi or any other API that you have created for these calls but it must be publically hosted - it must not be running on your localhost.
+## Learn More
 
-Display at least 2 properties from each result.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Each result should link to the detail page, passing a parameter in the URL.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Detail
+### Code Splitting
 
-Retrieve the parameter from the URL and use it in an API call to fetch one item.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-Display at least 3 properties from the item.
+### Analyzing the Bundle Size
 
-### Contact
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-Create a form with the following inputs and validation:
+### Making a Progressive Web App
 
--   First name - required, minimum 3 characters
--   Last name - required, minimum 4 characters
--   Email - required, must be in a valid email format
--   Subject - required, this must be a select box with at least 2 options
--   Message - required, minimum 10 characters.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Login
+### Advanced Configuration
 
-Create a form with username/email and password fields. The inputs should have the necessary validation for a login form (not a registration form).
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-The form should make a login request to either a Wordpress API with the JWT plugin installed or a Strapi API. If the login is successful redirect the user to the admin route.
+### Deployment
 
-If the login is unsuccessful display a message above the form.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### Admin
+### `npm run build` fails to minify
 
-This page will simply display an "Admin" heading.
-
----
-
-## Level 2
-
-Add a favourite button/icon component to each result on your home page. Clicking this button will toggle the result in/out of a favourites array.
-
-Add a "/favourites" path to your routes. This page will display all the items currently in the favourites array.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
