@@ -7,16 +7,11 @@ import Login from "./components/login/Login";
 import Admin from "./components/admin/Admin";
 import AuthContext, { AuthProvider } from "./context/AuthContext";
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
 import Navigation from "./components/layout/Navigation";
 
 function App() {
   const [auth, setAuth] = useContext(AuthContext);
 
-  function logout() {
-    setAuth(null);
-    Navigate("/login");
-  }
   return (
     <Router>
       <Navigation />

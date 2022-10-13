@@ -7,8 +7,6 @@ import axios from "axios";
 import FormError from "./FormError";
 import { JWT_TOKEN } from "../../constants/loginApi";
 
-import React from "react";
-
 export default function LoginForm() {
   const [loginError, setLoginError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
