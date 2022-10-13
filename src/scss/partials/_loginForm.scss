@@ -3,7 +3,7 @@
   width: 90%;
   margin: auto;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet-size) {
     width: 50%;
   }
 
@@ -25,7 +25,7 @@
   }
 
   & span {
-    color: red;
+    color: $color-warning;
   }
 
   & div {
@@ -39,7 +39,7 @@
     width: 100px;
     align-self: self-end;
     margin: 1rem;
-    background-color: #a0a83e;
+    background-color: $color-primary;
     cursor: pointer;
 
     &:hover {

@@ -17,12 +17,12 @@ a {
 }
 
 .introduction__heading {
-  color: white;
+  color: #f8f6f6;
   text-align: center;
 }
 
 .loader {
-  background-color: white;
+  background-color: #f8f6f6;
   padding: 2rem;
   font-size: 2rem;
   display: -webkit-box;
@@ -58,13 +58,12 @@ body {
 }
 
 header {
-  background-color: aliceblue;
   text-align: center;
-  color: white;
+  color: #f8f6f6;
 }
 
 header a {
-  color: white;
+  color: #f8f6f6;
 }
 
 header a:hover {
@@ -94,14 +93,14 @@ nav {
   background: #bccb62;
   border: 1px solid #bccb62;
   border-radius: 6px;
-  color: #000000;
+  color: #070505;
   cursor: pointer;
   padding: 8px;
 }
 
 .logoutBtn:hover {
   background-color: initial;
-  color: red;
+  color: #f91717;
 }
 
 .logoutBtn:active {
@@ -121,7 +120,7 @@ nav {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 2rem;
-  color: white;
+  color: #f8f6f6;
 }
 
 .form {
@@ -130,7 +129,7 @@ nav {
   display: -ms-flexbox;
   display: flex;
   width: 90%;
-  margin: auto;
+  margin: 1rem auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -160,7 +159,7 @@ nav {
 }
 
 .form span {
-  color: red;
+  color: #f91717;
 }
 
 .form div {
@@ -178,7 +177,7 @@ nav {
       -ms-grid-row-align: self-end;
       align-self: self-end;
   margin: 1rem;
-  background-color: #a0a83e;
+  background-color: #a7811c;
   cursor: pointer;
 }
 
@@ -187,7 +186,7 @@ nav {
 }
 
 .beerDetails {
-  color: white;
+  color: #f8f6f6;
   margin: 1rem;
   display: -ms-grid;
   display: grid;
@@ -230,15 +229,15 @@ nav {
 }
 
 .beerList a {
-  color: white;
+  color: #070505;
 }
 
 .beerList .beer {
   margin: 1rem auto;
   border-radius: 4px;
   background-color: #bccb62;
-  -webkit-box-shadow: 1px 1px 1px 1px black;
-          box-shadow: 1px 1px 1px 1px black;
+  -webkit-box-shadow: 1px 1px 1px 1px #070505;
+          box-shadow: 1px 1px 1px 1px #070505;
   width: 15rem;
   text-align: center;
   font-size: 1.2rem;
@@ -247,7 +246,7 @@ nav {
 
 .beerList .beer:hover {
   background-color: #a7811c;
-  color: white;
+  color: #f8f6f6;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
 }
@@ -309,7 +308,7 @@ nav {
 }
 
 .loginForm span {
-  color: red;
+  color: #f91717;
 }
 
 .loginForm div {
@@ -327,7 +326,7 @@ nav {
       -ms-grid-row-align: self-end;
       align-self: self-end;
   margin: 1rem;
-  background-color: #a0a83e;
+  background-color: #a7811c;
   cursor: pointer;
 }
 
@@ -341,7 +340,7 @@ nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: white;
+  color: #f8f6f6;
   margin: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -11,12 +11,12 @@ a {
 }
 
 .introduction__heading {
-  color: white;
+  color: $color-light;
   text-align: center;
 }
 
 .loader {
-  background-color: white;
+  background-color: $color-light;
   padding: 2rem;
   font-size: 2rem;
   display: flex;

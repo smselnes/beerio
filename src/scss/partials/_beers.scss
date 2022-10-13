@@ -1,5 +1,5 @@
 .beerDetails {
-  color: white;
+  color: $color-light;
   margin: 1rem;
   display: grid;
 
@@ -10,17 +10,17 @@
     width: 100px;
     margin: auto;
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet-size) {
       width: 350px;
     }
   }
 
-  @media (min-width: 551px) {
+  @media (min-width: $small-size) {
     width: 50%;
     margin: auto;
   }
 
-  @media (min-width: 991px) {
+  @media (min-width: $desktop-size) {
     font-size: 1.5rem;
   }
 }
@@ -30,14 +30,14 @@
   flex-wrap: wrap;
 
   a {
-    color: white;
+    color: $color-dark;
   }
 
   .beer {
     margin: 1rem auto;
     border-radius: 4px;
     background-color: $color-card-bg;
-    box-shadow: 1px 1px 1px 1px black;
+    box-shadow: 1px 1px 1px 1px $color-dark;
     width: 15rem;
     text-align: center;
     font-size: 1.2rem;
@@ -45,7 +45,7 @@
 
     &:hover {
       background-color: $color-primary;
-      color: white;
+      color: $color-light;
       transition: 0.5s ease;
     }
   }
