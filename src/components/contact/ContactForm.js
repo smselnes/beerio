@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 
 function ContactForm() {
+  const formSuccessMessage = document.querySelector(".formSuccess");
+
   const {
     register,
     handleSubmit,
@@ -9,18 +11,18 @@ function ContactForm() {
 
   function onSubmit(data) {
     console.log(data);
+    formSuccessMessage.style.display = "flex";
   }
-
-  console.log(errors);
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
         {/* First name validation */}
         <div className="form__input--firstName">
           <label htmlFor="firstName">First name</label>
           <input
             id="firstName"
+            placeholder="first name..."
             aria-invalid={errors.name ? "true" : "false"}
             {...register("firstName", { required: true, minLength: 3 })}
           />
@@ -36,6 +38,7 @@ function ContactForm() {
           <label htmlFor="lastName">Last name</label>
           <input
             id="lastName"
+            placeholder="last name..."
             {...register("lastName", { required: true, minLength: 4 })}
           />
           {errors.lastName && errors.lastName.type === "required" && (
@@ -50,6 +53,7 @@ function ContactForm() {
           <label htmlFor="email">Email</label>
           <input
             id="email"
+            placeholder="email..."
             type="email"
             {...register("email", { required: true })}
           ></input>
@@ -80,7 +84,7 @@ function ContactForm() {
             <span>Minimum 10 characters.</span>
           )}
         </div>
-        <input type="submit" />
+        <input type="submit" value="Send" className="form__submit" />
       </form>
     </>
   );

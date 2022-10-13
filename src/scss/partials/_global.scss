@@ -3,9 +3,29 @@
 }
 
 body {
-  background-color: rgb(200, 232, 200);
+  background-color: $color-primary;
 }
 
 a {
   text-decoration: none;
+}
+
+.introduction__heading {
+  color: white;
+  text-align: center;
+}
+
+.loader {
+  background-color: white;
+  padding: 2rem;
+  font-size: 2rem;
+  display: flex;
+  margin: auto;
+}
+
+.errorMessage {
+  background: $color-background;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }

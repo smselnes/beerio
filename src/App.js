@@ -1,6 +1,5 @@
-//import "./App.css";
 import "./scss/style.scss";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/homepage/Home";
 import Contact from "./components/contact/Contact";
 import Details from "./components/details/Details";
@@ -22,7 +21,7 @@ function App() {
     <Router>
       <Navigation />
 
-      <div className="container">
+      <div>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/contact" element={<Contact />}></Route>

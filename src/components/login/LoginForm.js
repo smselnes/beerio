@@ -31,11 +31,8 @@ export default function LoginForm() {
 
     try {
       const response = await axios.post(url, data);
-
       console.log(response.data);
-      //console.log(response.data.user_email);
       setAuth(response.data);
-      //setUser(response.data.user_email);
       navigate("/admin");
     } catch (error) {
       console.log("There was an error", error);
@@ -44,38 +41,55 @@ export default function LoginForm() {
       setSubmitting(false);
     }
   }
+
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="loginForm">
         {loginError && (
           <FormError>
-            There was an error during login. Advanced:{loginError}
+            <p>There was an error during login.</p>
+            <p>Advanced:{loginError}</p>
           </FormError>
         )}
         <fieldset disabled={submitting}>
           <div>
+            <label htmlFor="username">User email</label>
             <input
               name="username"
               placeholder="Username"
-              {...register("username")}
+              {...register("username", {
+                required: true,
+                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i,
+              })}
             />
-            {errors.username && (
-              <FormError>{errors.username.message}</FormError>
+            {errors.username && errors.username.type === "required" && (
+              <span>Required field</span>
+            )}
+            {errors.username && errors.username.type === "pattern" && (
+              <span>Must be a valid email</span>
             )}
           </div>
 
           <div>
+            <label htmlFor="password">Password</label>
             <input
               name="password"
               placeholder="Password"
-              {...register("password")}
+              {...register("password", { required: true, minLength: 8 })}
               type="password"
             />
-            {errors.password && (
-              <FormError>{errors.password.message}</FormError>
+            {errors.password && errors.password.type === "required" && (
+              <span>Required field.</span>
+            )}
+            {errors.password && errors.password.type === "minLength" && (
+              <span>Minimum 8 characters.</span>
             )}
           </div>
-          <button>{submitting ? "Logging in" : "Login"}</button>
+          <input
+            type="submit"
+            value={submitting ? "Logging in" : "Login"}
+            className="loginForm__submit"
+          />
         </fieldset>
       </form>
     </>

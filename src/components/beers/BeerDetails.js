@@ -15,7 +15,11 @@ function CreateBeerDetails() {
   }
 
   const url = singleApi + "/" + id;
-  console.log(url);
+
+  const navigateBack = useNavigate();
+  function goBack() {
+    navigateBack("/");
+  }
 
   useEffect(
     function () {
@@ -25,7 +29,6 @@ function CreateBeerDetails() {
 
           if (response.ok) {
             const json = await response.json();
-            console.log(json);
             setBeer(json);
           } else {
             setError("There was an error");
@@ -42,19 +45,37 @@ function CreateBeerDetails() {
   );
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p className="loader">loading...</p>;
   }
 
   if (error) {
-    return <p>Error!</p>;
+    return (
+      <div className="errorMessage">
+        <p>Error: There was an unexpected error.</p>
+        <p>Advanced: {error}</p>
+      </div>
+    );
   }
+
+  const foodPairs = beer[0].food_pairing;
+  const food = foodPairs.map((foods, index) => <li key={index}>{foods}</li>);
 
   return (
     <div className="beerDetails">
       <h3>{beer[0].name}</h3>
-      <p>{beer[0].description}</p>
-      <p>{beer[0].food_pairing}</p>
+      <p>
+        Description: <br />
+        {beer[0].description}
+      </p>
+      <p className="foodPairingsContainer">
+        Food pairings: <br />
+        {food}
+      </p>
       <img src={beer[0].image_url} />
+
+      <button onClick={goBack} className="backToCollectionBtn">
+        Back to collection
+      </button>
     </div>
   );
 }

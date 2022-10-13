@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { json } from "react-router-dom";
 import { beersApi } from "../../constants/api";
-import { Link } from "react-router-dom";
 import BeerItem from "./BeerItem";
 
 function BeerList() {
@@ -30,11 +28,16 @@ function BeerList() {
   }, []);
 
   if (loading) {
-    return <p>loading...</p>;
+    return <p className="loader">loading...</p>;
   }
 
   if (error) {
-    return <p>Error: {json.error}</p>;
+    return (
+      <div className="errorMessage">
+        <p>Error: There was an unexpected error.</p>
+        <p>Advanced: {error}</p>
+      </div>
+    );
   }
 
   return (
@@ -45,12 +48,6 @@ function BeerList() {
         return (
           <BeerItem key={id} id={id} name={name} food_pairing={food_pairing} />
         );
-        {
-          /* <div key={beer.id}>
-            <h3>{beer.name}</h3>
-            <p>{beer.tagline}</p>
-          </div> */
-        }
       })}
     </>
   );

@@ -1,5 +1,72 @@
 .beerDetails {
+  color: white;
+  margin: 1rem;
+  display: grid;
+
+  h3 {
+    text-align: center;
+  }
   & img {
     width: 100px;
+    margin: auto;
+
+    @media (min-width: 768px) {
+      width: 350px;
+    }
+  }
+
+  @media (min-width: 551px) {
+    width: 50%;
+    margin: auto;
+  }
+
+  @media (min-width: 991px) {
+    font-size: 1.5rem;
+  }
+}
+
+.beerList {
+  display: flex;
+  flex-wrap: wrap;
+
+  a {
+    color: white;
+  }
+
+  .beer {
+    margin: 1rem auto;
+    border-radius: 4px;
+    background-color: $color-card-bg;
+    box-shadow: 1px 1px 1px 1px black;
+    width: 15rem;
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+
+    &:hover {
+      background-color: $color-primary;
+      color: white;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+.backToCollectionBtn {
+  background: $color-card-bg;
+  border: 1px solid $color-card-bg;
+  border-radius: 6px;
+  color: #000000;
+  cursor: pointer;
+  padding: 8px;
+  width: 100px;
+  justify-self: center;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: $color-background;
+  }
+
+  &:active {
+    opacity: 0.5;
   }
 }

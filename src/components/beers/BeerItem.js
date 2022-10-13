@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function BeerItem({ id, name, food_pairings }) {
+function BeerItem({ id, name }) {
   return (
-    <Link to={`detail/${id}`}>
-      <h5>{name}</h5>
-      <p>{food_pairings}</p>
-    </Link>
+    <div className="beer">
+      <Link to={`detail/${id}`}>
+        <h5>{name}</h5>
+      </Link>
+    </div>
   );
 }
 
-/* BookItem.propTypes = {
- id: PropTypes.number.isRequired,
- title: PropTypes.string.isRequired,
- published: PropTypes.string.isRequired,
-}; */
+BeerItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default BeerItem;

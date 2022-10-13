@@ -1,0 +1,9 @@
+.adminContent {
+  display: grid;
+  justify-content: center;
+  color: white;
+  margin: 1rem;
+
+  @media (min-width: 551px) {
+  }
+}

@@ -1,7 +1,12 @@
 import React from "react";
 import CreateBeerDetails from "../beers/BeerDetails";
-import BeerItem from "../beers/BeerItem";
+import { PageTitle } from "../layout/PageTitle";
 
 export default function () {
-  return <CreateBeerDetails />;
+  PageTitle("Beerio - Beer Details");
+  return (
+    <>
+      <CreateBeerDetails />
+    </>
+  );
 }
