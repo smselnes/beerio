@@ -5,13 +5,9 @@ import Contact from "./components/contact/Contact";
 import Details from "./components/details/Details";
 import Login from "./components/login/Login";
 import Admin from "./components/admin/Admin";
-import AuthContext, { AuthProvider } from "./context/AuthContext";
-import { useContext } from "react";
 import Navigation from "./components/layout/Navigation";
 
 function App() {
-  const [auth, setAuth] = useContext(AuthContext);
-
   return (
     <Router>
       <Navigation />
