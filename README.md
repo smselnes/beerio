@@ -26,6 +26,6 @@ Based on the given criterias I was given a score of 7/10.
 
 I've taken the feedback given and improved the project with it + other improvements for practice. See [recent updates](/CHANGELOG.md)
 
-<sub> Login credentials:
-username: smselnes@gmail.com
-password: Fforon2021\*</sub>
+### References
+
+- API used: The Punk API [docs](https://punkapi.com/documentation/v2)
