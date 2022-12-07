@@ -1,23 +1,55 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import FormError from "../login/FormError";
+import FormSuccess from "../utils/FormSuccess";
+
+const schema = yup.object().shape({
+  firstName: yup
+    .string()
+    .required("Required field")
+    .min(2, "Minimum 2 characters"),
+  lastName: yup
+    .string()
+    .required("Required field")
+    .min(2, "Minimum 2 characters"),
+  email: yup.string().required("Required field"),
+  subject: yup.string(),
+  content: yup.string().required("Required field"),
+});
 
 function ContactForm() {
-  const formSuccessMessage = document.querySelector(".formSuccess");
-
+  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   function onSubmit(data) {
     console.log(data);
-    formSuccessMessage.style.display = "flex";
+    setSubmitted(true);
+    setTimeout(() => {
+      window.location.reload();
+      navigate("/");
+    }, 5000);
   }
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="form">
-        {/* First name validation */}
+        {submitted && (
+          <FormSuccess>
+            Thank you for testing out this form! You will be redirected in a few
+            seconds.
+          </FormSuccess>
+        )}
+
         <div className="form__input--firstName">
           <label htmlFor="firstName">First name</label>
           <input
@@ -26,14 +58,11 @@ function ContactForm() {
             aria-invalid={errors.name ? "true" : "false"}
             {...register("firstName", { required: true, minLength: 3 })}
           />
-          {errors.firstName && errors.firstName.type === "required" && (
-            <span>Required field</span>
-          )}
-          {errors.firstName && errors.firstName.type === "minLength" && (
-            <span>Minimum 3 characters.</span>
+          {errors.firstName && (
+            <FormError>{errors.firstName.message}</FormError>
           )}
         </div>
-        {/* Last name validation */}
+
         <div className="form__input--lastName">
           <label htmlFor="lastName">Last name</label>
           <input
@@ -41,14 +70,9 @@ function ContactForm() {
             placeholder="last name..."
             {...register("lastName", { required: true, minLength: 4 })}
           />
-          {errors.lastName && errors.lastName.type === "required" && (
-            <span>Required</span>
-          )}
-          {errors.lastName && errors.lastName.type === "minLength" && (
-            <span>Minimum 4 characters.</span>
-          )}
+          {errors.lastName && <FormError>{errors.lastName.message}</FormError>}
         </div>
-        {/* Email validation */}
+
         <div className="form__input--email">
           <label htmlFor="email">Email</label>
           <input
@@ -56,33 +80,25 @@ function ContactForm() {
             placeholder="email..."
             type="email"
             {...register("email", { required: true })}
-          ></input>
-          {errors.email && errors.email.type === "required" && (
-            <span>Required</span>
-          )}
+          ></input>{" "}
+          {errors.email && <FormError>{errors.email.message}</FormError>}
         </div>
-        {/* Subject validation */}
 
         <div className="form__input--subject">
           <label htmlFor="subject">Subject</label>
-          <select id="subject">
+          <select id="subject" {...register("subject")}>
+            <option value="guidedTour">Select one</option>
             <option value="guidedTour">Guided tours</option>
             <option value="questions">Questions</option>
             <option value="sales">Sales</option>
-          </select>
+          </select>{" "}
+          {errors.subject && <FormError>{errors.subject.message}</FormError>}
         </div>
-        {/* Textarea validation */}
+
         <div className="form__input--message">
-          <label htmlFor="message"></label>
-          <textarea
-            {...register("message", { required: true, minLength: 10 })}
-          />
-          {errors.message && errors.message.type === "required" && (
-            <span>Required</span>
-          )}
-          {errors.message && errors.message.type === "minLength" && (
-            <span>Minimum 10 characters.</span>
-          )}
+          <label htmlFor="content"></label>
+          <textarea id="content" {...register("content")} />{" "}
+          {errors.content && <FormError>{errors.content.message}</FormError>}
         </div>
         <input type="submit" value="Send" className="form__submit" />
       </form>

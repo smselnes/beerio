@@ -28,6 +28,7 @@
 .beerList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   a {
     color: $color-dark;

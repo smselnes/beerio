@@ -1,0 +1,37 @@
+// loader styling and animations
+.loader {
+  font-size: 2rem;
+  display: grid;
+  justify-items: center;
+
+  & img {
+    width: 100px;
+    animation: rotate 1s infinite linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// form error handling styling
+.form-error {
+  background-color: $error-bg;
+  border-radius: 5px;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  width: fit-content !important;
+}
+
+.form-success {
+  background-color: green;
+  color: white;
+  padding: 0.5rem;
+
+  justify-content: center;
+}

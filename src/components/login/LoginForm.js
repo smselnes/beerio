@@ -6,6 +6,18 @@ import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import FormError from "./FormError";
 import { JWT_TOKEN } from "../../constants/loginApi";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+const userNamePattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i;
+
+const schema = yup.object().shape({
+  username: yup
+    .string()
+    .required("Required field")
+    .email()
+    .matches(userNamePattern, "Must be a valid email"),
+  password: yup.string().required("Invalid password"),
+});
 
 export default function LoginForm() {
   const [loginError, setLoginError] = useState(null);
@@ -18,7 +30,9 @@ export default function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const [auth, setAuth] = useContext(AuthContext);
 
@@ -60,11 +74,8 @@ export default function LoginForm() {
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i,
               })}
             />
-            {errors.username && errors.username.type === "required" && (
-              <span>Required field</span>
-            )}
-            {errors.username && errors.username.type === "pattern" && (
-              <span>Must be a valid email</span>
+            {errors.username && (
+              <FormError>{errors.username.message}</FormError>
             )}
           </div>
 
@@ -76,11 +87,8 @@ export default function LoginForm() {
               {...register("password", { required: true, minLength: 8 })}
               type="password"
             />
-            {errors.password && errors.password.type === "required" && (
-              <span>Required field.</span>
-            )}
-            {errors.password && errors.password.type === "minLength" && (
-              <span>Minimum 8 characters.</span>
+            {errors.password && (
+              <FormError>{errors.password.message}</FormError>
             )}
           </div>
           <input

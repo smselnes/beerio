@@ -14,18 +14,3 @@ a {
   color: $color-light;
   text-align: center;
 }
-
-.loader {
-  background-color: $color-light;
-  padding: 2rem;
-  font-size: 2rem;
-  display: flex;
-  margin: auto;
-}
-
-.errorMessage {
-  background: $color-background;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-}

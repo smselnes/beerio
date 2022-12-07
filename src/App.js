@@ -6,6 +6,7 @@ import Details from "./components/details/Details";
 import Login from "./components/login/Login";
 import Admin from "./components/admin/Admin";
 import Navigation from "./components/layout/Navigation";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/detail/:id" element={<Details />}></Route>
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

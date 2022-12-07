@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { singleApi } from "../../constants/singleResultApi";
 import { useParams, useNavigate } from "react-router-dom";
+import Loader from "../utils/Loader";
 
 function CreateBeerDetails() {
   const [beer, setBeer] = useState(null);
@@ -45,7 +46,7 @@ function CreateBeerDetails() {
   );
 
   if (loading) {
-    return <p className="loader">loading...</p>;
+    return <Loader />;
   }
 
   if (error) {
@@ -71,7 +72,10 @@ function CreateBeerDetails() {
         Food pairings: <br />
         {food}
       </p>
-      <img src={beer[0].image_url} />
+      <img
+        src={beer[0].image_url}
+        alt={`${beer[0].name}'packaging seen from the front. `}
+      />
 
       <button onClick={goBack} className="backToCollectionBtn">
         Back to collection

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-import navImage from "../../../src/beerio2.jpg";
+import navImage from "../../assets/header.jpg";
 
 function Navigation() {
   const [auth, setAuth] = useContext(AuthContext);

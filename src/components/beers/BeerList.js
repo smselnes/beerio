@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { beersApi } from "../../constants/api";
+import FormError from "../login/FormError";
+import Loader from "../utils/Loader";
 import BeerItem from "./BeerItem";
 
 function BeerList() {
@@ -28,16 +30,11 @@ function BeerList() {
   }, []);
 
   if (loading) {
-    return <p className="loader">loading...</p>;
+    return <Loader />;
   }
 
   if (error) {
-    return (
-      <div className="errorMessage">
-        <p>Error: There was an unexpected error.</p>
-        <p>Advanced: {error}</p>
-      </div>
-    );
+    return <FormError />;
   }
 
   return (
