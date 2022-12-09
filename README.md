@@ -1,5 +1,7 @@
 # Beerio - My assignment for the JavaScript Frameworks Course. (October 2022).
 
+![project image](/src/assets/beerio-mockup.jpg)
+
 ## Brief
 
 To create a simple website using React or Next.js. The website should be created by using an API of free choice that can return an array of items and an single item with details to fetch.
