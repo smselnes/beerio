@@ -2,15 +2,15 @@
 
 ![project image](/src/assets/beerio-mockup.jpg)
 
-## Brief
+## Description
 
-To create a simple website using React or Next.js. The website should be created by using an API of free choice that can return an array of items and an single item with details to fetch.
+A simple website using React or Next.js. The website should be created by using an API of free choice that can return an array of items and an single item with details to fetch.
 
 We are also setting up a contact form and a login form with validation and error messages.
 
 For login functionality we are using our own Wordpress installation or Strapi installation.
 
-### Tools
+### Built With
 
 - Planning: Trello + oneNote
 - JS Framework: React
@@ -20,14 +20,22 @@ For login functionality we are using our own Wordpress installation or Strapi in
   - Yup.
   - React-hook-form.
 
-### Feedback
+# Getting started
 
-Based on the given criterias I was given a score of 7/10.
+## Installing
+
+Clone or download the repository. Install the dependencies.
+`npm install`
+
+## Running
+
+To run the app, run the following command:
+`npm run start`
 
 ### Improvements
 
 I've taken the feedback given and improved the project with it + other improvements for practice. See [recent updates](/CHANGELOG.md)
 
-### References
+### acknowledgements
 
 - API used: The Punk API [docs](https://punkapi.com/documentation/v2)
